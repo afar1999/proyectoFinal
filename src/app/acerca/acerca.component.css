@@ -1,0 +1,53 @@
+#acerca{
+    background: white;
+    width: 90%;
+    max-width: 800px;
+    margin: 60px;
+}
+#boton{
+  border: none;
+  outline: none;
+  background-color:rgb(98, 200, 93);
+  color: white;
+
+}
+#boton2{
+  border: none;
+  outline: none;
+  background-color:rgb(0, 150, 0);
+  color: white;
+  margin:10px;
+}
+#lista1 {
+  display:inline;
+
+}
+#fondoazul{
+  background-color: rgb(98, 200, 93);
+  width:200px;
+}
+#holi{
+  left: 0;
+  position: fixed;
+  right: auto;
+  
+}
+#scroll{
+  overflow:scroll;
+  height:520px;
+  width:200px;
+}
+#holi2{
+  margin-top: 480px;
+  left: 0;
+  position: fixed;
+  right: auto;
+
+}
+#dropeable{
+  margin-left: 20px;
+}
+
+
+
+

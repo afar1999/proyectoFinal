@@ -1,0 +1,144 @@
+<p id="acerca">
+</p>
+
+
+<!--ejercicios que se pueden agarrar-->
+  <div id ="holi" class="card card-outline-success mb-3 ">
+      <div class="card-header card-inverse card-success">
+          Draggable Items
+          </div>
+      <div id ="scroll"class="card-block scroll-list">
+          <div class="list-group">
+              <li class="list-group-item list-group-item-action list-group-item-success" [draggable] *ngFor="let item of gifes2"[dragClass]="'active'" [dragData]="item" [dragScope]="'gifs'">
+                  <img src="{{item.gif}}" height="90px">
+              </li>
+          </div>
+      </div>
+  </div>
+  
+  <li *ngFor="let item of gifes" id="lista1">
+      <button (click)="mostrar(item.id)"id ="boton2">
+        rutina numero: {{item.id}}
+      </button>
+    </li>
+  <!--espacios donde dropear-->
+  <div id="dropeable"class=" row">
+    
+    <!--dia lunes-->
+    <div>
+        <div class="card-header card-inverse card-primary" droppable [dragHintClass]="'drag-hint-scale'" [dragOverClass]="'bg-danger'"
+        [dropScope]="'deleteL'" (onDrop)="[onDeleteDropL($event)]">Lunes</div>
+          <div class="card  card-block " droppable [dragOverClass]="'drag-target-border'" [dropScope]="['fruit', 'vegetable', 'gifs','antebrazo']"
+          [dragHintClass]="'drag-hint'" (onDrop)="onAnyDropLunes($event)">
+            <li id="fondoazul" draggable [dragClass]="'active'" [dragData]="item" [dragScope]="[item.type,'deleteL']" *ngFor="let item of droppedItemsLunes" class="list-group-item">   
+                <button id="boton"(click)="openmodal($event,item,this.droppedItemsLunes)">
+                    Nombre: {{item.nombre}}<br>
+                    Peso: {{item.peso}}<br>
+                    Repeticiones: {{item.repeticiones}}<br>
+                    Maquina: {{item.series}}<br>
+                  </button>
+            </li>
+          </div>
+    </div>
+    <!--dia martes-->
+    <div >
+        <div class="card-header card-inverse card-primary" droppable [dragHintClass]="'drag-hint-scale'" [dragOverClass]="'bg-danger'"
+        [dropScope]="'deleteM'" (onDrop)="[onDeleteDropM($event)]">Martes</div>
+          <div class="card card-block scroll-list" droppable [dragOverClass]="'drag-target-border'" [dropScope]="['fruit', 'vegetable', 'gifs']"
+          [dragHintClass]="'drag-hint'" (onDrop)="onAnyDropMartes($event)">
+            <li id="fondoazul" draggable [dragClass]="'active'" [dragData]="item" [dragScope]="[item.type,'deleteM']" *ngFor="let item of droppedItemsMartes" class="list-group-item">
+                <button id="boton"(click)="openmodal($event,item,droppedItemsMartes)">
+                    Nombre: {{item.nombre}}<br>
+                    Peso: {{item.peso}}<br>
+                    Repeticiones: {{item.repeticiones}}<br>
+                    Maquina: {{item.series}}<br>
+                  </button>
+            </li>
+          </div>
+    </div>
+    <!--dia miercoles-->
+    <div>
+        <div class="card-header card-inverse card-primary" droppable [dragHintClass]="'drag-hint-scale'" [dragOverClass]="'bg-danger'"
+        [dropScope]="'deleteMi'" (onDrop)="[onDeleteDropMi($event)]">Miercoles</div>
+          <div class="card card-block scroll-list" droppable [dragOverClass]="'drag-target-border'" [dropScope]="['fruit', 'vegetable', 'gifs']"
+          [dragHintClass]="'drag-hint'" (onDrop)="onAnyDropMiercoles($event)">
+            <li id="fondoazul" draggable [dragClass]="'active'" [dragData]="item" [dragScope]="[item.type,'deleteMi']" *ngFor="let item of droppedItemsMiercoles" class="list-group-item">
+                <button id="boton"(click)="openmodal($event,item,this.droppedItemsMiercoles)">
+                    Nombre: {{item.nombre}}<br>
+                    Peso: {{item.peso}}<br>
+                    Repeticiones: {{item.repeticiones}}<br>
+                    Maquina: {{item.series}}<br>
+                  </button>
+            </li>
+          </div>
+    </div>
+    <!--dia jueves-->
+    <div >
+      <div class="card-header card-inverse card-primary" droppable [dragHintClass]="'drag-hint-scale'" [dragOverClass]="'bg-danger'"
+      [dropScope]="'deleteJ'" (onDrop)="[onDeleteDropJ($event)]">Jueves</div>
+        <div class="card card-block scroll-list" droppable [dragOverClass]="'drag-target-border'" [dropScope]="['fruit', 'vegetable', 'gifs']"
+        [dragHintClass]="'drag-hint'" (onDrop)="onAnyDropJueves($event)">
+          <li id="fondoazul" draggable [dragClass]="'active'" [dragData]="item" [dragScope]="[item.type,'deleteJ']" *ngFor="let item of droppedItemsJueves" class="list-group-item">
+              <button id="boton"(click)="openmodal($event,item,this.droppedItemsJueves)">
+                  Nombre: {{item.nombre}}<br>
+                  Peso: {{item.peso}}<br>
+                  Repeticiones: {{item.repeticiones}}<br>
+                  Maquina: {{item.series}}<br>
+                </button>
+          </li>
+        </div>
+    </div>
+    <!--dia viernes-->
+    <div  >
+      <div class="card-header card-inverse card-primary" droppable [dragHintClass]="'drag-hint-scale'" [dragOverClass]="'bg-danger'"
+      [dropScope]="'deleteV'" (onDrop)="[onDeleteDropV($event)]">Viernes</div>
+        <div class="card card-block scroll-list" droppable [dragOverClass]="'drag-target-border'" [dropScope]="['fruit', 'vegetable', 'gifs']"
+        [dragHintClass]="'drag-hint'" (onDrop)="onAnyDropViernes($event)">
+          <li id="fondoazul" draggable [dragClass]="'active'" [dragData]="item" [dragScope]="[item.type,'deleteV']" *ngFor="let item of droppedItemsViernes" class="list-group-item">
+              <button id="boton"(click)="openmodal($event,item,this.droppedItemsViernes)">
+                  Nombre: {{item.nombre}}<br>
+                  Peso: {{item.peso}}<br>
+                  Repeticiones: {{item.repeticiones}}<br>
+                  Maquina: {{item.series}}<br>
+                </button>
+          </li>
+        </div>
+    </div>
+    <!--dia sabado-->
+    <div >
+      <div class="card-header card-inverse card-primary" droppable [dragHintClass]="'drag-hint-scale'" [dragOverClass]="'bg-danger'"
+      [dropScope]="'deleteS'" (onDrop)="[onDeleteDropS($event)]">Sabado</div>
+        <div class="card card-block scroll-list" droppable [dragOverClass]="'drag-target-border'" [dropScope]="['fruit', 'vegetable', 'gifs']"
+        [dragHintClass]="'drag-hint'" (onDrop)="onAnyDropSabado($event)">
+          <li id="fondoazul" draggable [dragClass]="'active'" [dragData]="item" [dragScope]="[item.type,'deleteS']" *ngFor="let item of droppedItemsSabado" class="list-group-item">
+              <button id="boton"(click)="openmodal($event,item,this.droppedItemsSabado)">
+                Nombre: {{item.nombre}}<br>
+                Peso: {{item.peso}}<br>
+                Repeticiones: {{item.repeticiones}}<br>
+                Maquina: {{item.series}}<br>
+              </button>
+          </li>
+        </div>
+    </div>
+    <!--dia domingo-->
+    <div>
+      <div class="card-header card-inverse card-primary" droppable [dragHintClass]="'drag-hint-scale'" [dragOverClass]="'bg-danger'"
+      [dropScope]="'deleteD'" (onDrop)="[onDeleteDropD($event)]">Domingo</div>
+        <div class="card card-block scroll-list" droppable [dragOverClass]="'drag-target-border'" [dropScope]="['fruit', 'vegetable', 'gifs']"
+        [dragHintClass]="'drag-hint'" (onDrop)="onAnyDropDomingo($event)">
+          <li id="fondoazul" draggable [dragClass]="'active'" [dragData]="item" [dragScope]="[item.type,'deleteD']" *ngFor="let item of droppedItemsDomingo" class="list-group-item">
+            <button id="boton"(click)="openmodal($event,item,this.droppedItemsDomingo)">
+                Nombre: {{item.nombre}}<br>
+                Peso: {{item.peso}}<br>
+                Repeticiones: {{item.repeticiones}}<br>
+                Maquina: {{item.series}}<br>
+            </button>
+          </li>
+      </div>
+    </div>
+</div>
+
+<button id="boton"(click)= "rutina()">guardar rutina</button>
+
+
+
